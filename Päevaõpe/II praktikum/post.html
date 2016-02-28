@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Vahur Lepvalts">
+	<title>Päevaõppe II praktikum | 2. osa</title>
+</head>
+
+<body>
+
+<form action="post.html" id="UserForm" method="post">
+<table>
+  <tr>
+    <td>Eesnimi</td>
+    <td><input type="text" name="FirstName" placeholder="Juku"></td>
+  </tr>
+  <tr>
+    <td>Perekonnanimi</td>
+    <td><input type="text" name="LastName" placeholder="Juhan"></td>
+  </tr>
+  <tr>
+	<td>Sugu</td>
+	<td>
+		<select name="Gender" form="UserForm">
+		<option value="Man">Mees</option>
+		<option value="Woman">Naine</option>
+		<option value="NA">Ei soovi avaldada</option>
+		</select>
+	</td>
+  </tr>
+  <tr>
+    <td>Vanus</td>
+    <td><input type="text" name="Age" placeholder="11"></td>
+  </tr>
+  <tr>
+    <td>Aadress</td>
+    <td><textarea name="Address" form="UserForm" placeholder="Tänav 1-1, Tallinn, 11111"></textarea></td>
+  </tr>
+  <tr>
+    <td>Lemmik värv</td>
+    <td><input type="text" name="FavColor" placeholder="Roheline"></td>
+  </tr>
+  <tr>
+    <td>Lemmik loom</td>
+    <td><input type="text" name="FavPet" placeholder="Koer"></td>
+  </tr>
+</table>
+<input type="submit" value="Sisesta!">
+</form>
+
+</body>
+</html>
