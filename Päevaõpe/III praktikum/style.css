@@ -1,0 +1,99 @@
+body {
+	background-color: silver;
+	font-family: Verdana, Arial;
+}
+
+img.pealkiri {
+	width: 100px;
+	height: 100px;
+}
+
+img:hover {
+	border: 2px dashed black;
+	cursor: not-allowed;
+}
+
+ul.ruut {
+	list-style-type: circle;
+}
+
+ol.rooma {
+	list-style-type: upper-roman;
+}
+
+h1 {
+	color: Black;
+	border: 5px dashed black;
+	border-radius: 40px;
+	text-align: center;
+}
+
+h2 {
+	text-align: center;
+}
+
+h2:before {
+    content: '';
+    display: inline-block;
+    height: 3px;
+    background: silver;
+    width: 5%;
+    float: left;
+    margin-top: 15px;
+	padding-right: 9px;
+}
+
+h2:after {
+    content: '';
+    display: inline-block;
+    height: 3px;
+    background: silver;
+    width: 70%;
+    float: right;
+    margin-top: 15px;
+}
+
+h4 {
+	text-decoration: underline
+}
+
+div {
+	padding: 5px;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	max-width: 65%;
+	overflow-x: hidden;
+	background-color: #ccc;	
+}
+
+::-webkit-scrollbar { 
+    display: block; 
+}
+
+a {
+	color: black;
+	width: 100%;
+	font-family:arial;
+	font-style: italic;
+	margin: 0;
+	padding: 3px;
+	text-decoration: none;
+}
+
+a:hover  {
+	text-transform: uppercase;
+	color: #fff;
+}
+
+a:hover img {
+border: none !important;
+}
+
+pre {
+	background-color: white;
+	padding: 5px;
+}
