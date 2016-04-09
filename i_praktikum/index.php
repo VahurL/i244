@@ -17,7 +17,12 @@
 
 <p>Praktikumi lõpuni on <div id="counter"></div></p>
 
-<?php include 'counter.php'; ?>
+
+<?php
+include 'connect.php';
+include 'counter.php';
+include 'getuserip.php';
+?>
 
 </body>
 </html>
