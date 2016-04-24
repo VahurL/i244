@@ -1,0 +1,30 @@
+<?php require_once('head.html');
+
+	if(!empty($_POST)) {
+		$errors = array();
+		if(!empty($_POST["pilt"])) {
+			if (empty($_SESSION["voted_for"])) {
+				$_SESSION["voted_for"] = $_POST["pilt"];
+				$errors[] = "Aitäh valiku eest!<br />Sinu lemmik oli pilt nr. {$_SESSION['voted_for']}!";
+			} else {
+				$errors[] = "Sa oled juba valinud!<br />Sinu lemmik oli pilt nr. {$_SESSION['voted_for']}.";
+			}
+		}
+	} else {
+		if (empty($_SESSION["voted_for"])) {
+			$errors[] = "Palun vali pilt!";
+		} else {
+			$errors[] = "Sa oled juba valinud!<br />Sinu lemmik oli pilt nr. {$_SESSION['voted_for']}.<br />".'<a href="?mode=logout">Lõpeta sessioon</a>';;
+		}
+	}
+	
+echo "<h3>Valiku tulemus</h3>";
+
+if(!empty($errors)):
+	foreach($errors as $teade):
+		echo '<p style="color:red">'.$teade.'</p>';
+	endforeach;
+endif;
+
+require_once('foot.html');
+?>
