@@ -1,0 +1,17 @@
+Luua uus tabel 'loomaaed', kus on järgnevad väljad: id - täisarv, automaatselt suurenev primaarvõti; nimi - tekstiline väärtus; vanus - täisarv; liik - tesktiline väärtus; puur - täisarv.
+CREATE TABLE 10152993_loomaaed (id INTEGER PRIMARY KEY AUTO_INCREMENT, nimi VARCHAR(50), vanus TINYINT, liik VARCHAR(50), puur SMALLINT);
+
+Täita eelnevalt loodud tabel vähemalt 5 reaga. Sisestamisel valida andmed nii, et mõned loomad jagavad samat puuri ja mõnest liigist on mitu looma.
+INSERT INTO 10152993_loomaaed (nimi, vanus, liik, puur) VALUES ('Nala', 1, 'lumeleopard', 1), ('Cheetah', 3, 'gepard', 4), ('Firn', 4, 'lumelopard', 1), ('Halli', 15, 'elevant', 20), ('Laigu', 2, 'gepard', 4);
+
+Hankida kõigi mingis ühes kindlas puuris elavate loomade nimi ja puuri number.
+SELECT nimi, puur FROM 10152993_loomaaed WHERE puur=1;
+
+Hankida vanima ja noorima looma vanused.
+SELECT MIN(vanus), MAX(vanus) FROM 10152993_loomaaed;
+
+Hankida puuri number koos selles elavate loomade arvuga (vihjeks: group by ja count).
+SELECT puur, COUNT(*) FROM 10152993_loomaaed GROUP BY puur;
+
+Suurendada kõiki tabelis olevaid vanuseid 1 aasta võrra.
+UPDATE 10152993_loomaaed SET vanus=vanus+1;
