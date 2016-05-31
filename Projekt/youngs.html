@@ -1,0 +1,38 @@
+<table border="1" width="100%">
+  <tr>
+    <th>Eesnimi</th>
+    <th>Perekonnanimi</th>
+    <th>Sünniaeg</th>
+    <th>Elukoht</th>
+    <th>Telefon</th>
+	<th>Viimati muudetud</th>
+  </tr>
+
+<?php
+
+include_once('conn.php');
+
+$sql = "SELECT * FROM 10152993_young ORDER BY id DESC;";
+
+$result = $connection->query($sql);
+if (!$result)
+	echo mysqli_error($connection);
+
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+		echo "<tr>\n";        
+		echo "<td>" . $row['eesnimi'] . "</td>\n";
+		echo "<td>" . $row['perekonnanimi'] . "</td>\n";
+		echo "<td>" . $row['synniaeg'] . "</td>\n";
+		echo "<td>" . $row['elukoht'] . "</td>\n";
+		echo "<td>" . $row['telefon'] . "</td>\n";
+		echo "<td>" . $row['muudetud'] . "</td>\n";
+		}
+	} else {
+		echo "0 results";
+	}
+
+mysqli_close($connection);
+?>

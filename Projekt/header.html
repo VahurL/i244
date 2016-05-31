@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Vahur Lepvalts">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Randvere noortekeskus</title>
+</head>
+<body>
+
+<div id="body">
+	<ul id="menu">
+		<li><a href="?">Pealeht</a></li>
+		<?php if(isset($_SESSION['username'])): ?>
+			<li><a href="?page=visits">Külastused</a></li>
+			<li><a href="?page=youngs">Noored</a></li>
+			<li style="float:right"><a href="?page=logout">Logi välja</a></li>
+		<?php else: ?>
+			<li style="float:right"><a class="active" href="?page=login">Logi sisse</a></li>
+		<?php endif; ?>
+			<li><a href="http://www.huvikeskus.ee/noortekeskused/randvere-noortekeskus/230/253" target="_blank">Koduleht</a>
+	</ul>
+	<div id="content">
