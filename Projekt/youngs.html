@@ -1,4 +1,5 @@
-<table border="1" width="100%">
+<form action="?page=del_young" method="POST">
+<table class="youngs_table">
 <tr>
 	<th></th>
 	<th>Eesnimi</th>
@@ -7,6 +8,7 @@
 	<th>Sünniaeg</th>
 	<th>Elukoht</th>
 	<th>Telefon</th>
+	<th>E-mail</th>
 	<th>Viimati muudetud</th>
 </tr>
 
@@ -22,7 +24,7 @@ if (!$result)
 
 
 if ($result->num_rows > 0) {
-echo "<form action='?page=del_young' method='POST'>";
+echo "";
     // output data of each row
     while($row = $result->fetch_assoc()) {
 		echo "<tr>\n";
@@ -33,15 +35,16 @@ echo "<form action='?page=del_young' method='POST'>";
 		echo "<td>".$row['synniaeg']."</td>\n";
 		echo "<td>".$row['elukoht']."</td>\n";
 		echo "<td>".$row['telefon']."</td>\n";
-		echo "<td>".$row['muudetud']."</td>\n";
+		echo "<td>".$row['email']."</td>\n";
+		echo "<td>".$row['muudetud']."</td>\n</tr>\n";
 		}
 	} else {
-		echo "0 results";
+		echo "<tr><td colspan='9'>Noori ei leitud!</td></tr>";
 	}
 	
 mysqli_close($connection);
 ?>
-</table>
+</table><br />
 
 <input type="submit" value="Kustuta valitud" />
 </form>

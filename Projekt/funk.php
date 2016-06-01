@@ -61,28 +61,12 @@ function add_young(){
 		header("Location: index.php?page=login");
 	} else {
 		if(isset($_POST['add'])) {
-			global $connection;
-			$first_name = mysqli_real_escape_string($connection, $_POST["firstname"]);
-			$last_name = mysqli_real_escape_string($connection, $_POST['lastname']);
-			$gender = mysqli_real_escape_string($connection, $_POST['gender']);
-			$birth_date = mysqli_real_escape_string($connection, $_POST['birthdate']);
-			$location = mysqli_real_escape_string($connection, $_POST['address']);
-			$phone_number = mysqli_real_escape_string($connection, $_POST['phone']);
-			
-			$first_name = input_control($first_name);
-			$last_name = input_control($last_name);
-			$gender = input_control($gender);
-			$birth_date = input_control($birth_date);
-			$location = input_control($location);
-			$phone_number = input_control($phone_number);
-			
-			$sql = "INSERT INTO 10152993_young (eesnimi, perekonnanimi, sugu, synniaeg, elukoht, telefon, muudetud) VALUES ('$first_name', '$last_name', '$gender', '$birth_date', '$location', '$phone_number', NOW())";
-			if(mysqli_query($connection, $sql)){
-				echo "Noor lisatud!";
-			} else {
-				echo "VIGA! Ei saanud kasutajat lisada!";
-				}
-			include_once('add_young.html');
+
+		
+					include_once('add2.php');
+
+		
+		
 		} else {
 			include_once('add_young.html');
 		}

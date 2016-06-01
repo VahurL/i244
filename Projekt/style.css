@@ -26,6 +26,15 @@ table {
 	margin-right:auto;
 }
 
+.youngs_table {
+	width: 100%;
+	border: 1px solid black;
+}
+
+.youngs_table tr:hover{
+	background: #f4511e;
+}
+
 ul {
     list-style-type: none;
     margin: 0;

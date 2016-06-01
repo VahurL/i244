@@ -1,8 +1,11 @@
-<form action="?page=add_young" method="POST">
+<?php include('reset_vars.php'); ?>
+
+<form action="?page=add_young" method="POST" accept-charset="UTF-8">
 	<table>
 		<tr>
 			<td>Eesnimi:</td>
-			<td><input type="text" name="firstname" placeholder="Eesnimi" required></td>
+			<td><input type="text" name="firstname" placeholder="Eesnimi" value="<?php echo $first_name; ?>" required><br />
+			<span class="error"><?php echo $first_name_error; ?></span></td>
 		</tr>
 		<tr>
 			<td>Perekonnanimi:</td>
@@ -10,7 +13,7 @@
 		</tr>
 		<tr>
 			<td>Sugu:</td>
-			<td><input type="radio" name="gender" value="Tüdruk">Tüdruk <input type="radio" name="gender" value="Poiss">Poiss</td>
+			<td><input type="radio" name="gender" value="Tüdruk" checked="checked">Tüdruk <input type="radio" name="gender" value="Poiss">Poiss</td>
 		</tr>
 		<tr>
 			<td>Sünniaeg:</td>
@@ -23,6 +26,10 @@
 		<tr>
 			<td>Telefon:</td>
 			<td><input type="text" name="phone" placeholder="Telefon"></td>
+		</tr>
+		<tr>
+			<td>E-mail:</td>
+			<td><input type="text" name="email" placeholder="Email"></td>
 		</tr>
 	</table>
 	<button name="add" class="loginbutton" style="vertical-align:middle"><span>Sisesta</span></button>
