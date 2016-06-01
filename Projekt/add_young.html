@@ -1,4 +1,14 @@
-<?php include('reset_vars.php'); ?>
+<?php
+
+if (!isset($first_name)) {
+	$first_name = "";
+}
+
+if (!isset($first_name_error)) {
+	$first_name_error = "";
+}
+
+?>
 
 <form action="?page=add_young" method="POST" accept-charset="UTF-8">
 	<table>
