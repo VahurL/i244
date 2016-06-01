@@ -17,8 +17,10 @@ function login(){
 				$errors[] = "Sisestage palun parool!";
 				} else {
 				$kasutaja = mysqli_real_escape_string ($connection, $_POST["username"]);
+				$kasutaja = input_control($kasutaja);
 				$parool = mysqli_real_escape_string ($connection, $_POST["password"]);
-				$sql = "SELECT id FROM 10152993_kylastajad WHERE username='$kasutaja' AND passw=SHA1('$parool')";
+				$parool = input_control($parool);
+				$sql = "SELECT id FROM 10152993_kasutajad WHERE username='$kasutaja' AND passw=SHA1('$parool')";
 				$result = mysqli_query($connection, $sql);
 				$row = mysqli_num_rows($result);
 				if($row) {
@@ -131,7 +133,6 @@ function del_young(){
 		header("Location: index.php?page=login");
 	} else {
 		global $connection;
-		
 		$delete = $_POST['checkbox'];
 		foreach ($delete as $id => $val) {
 			if($val=='on'){
@@ -139,7 +140,6 @@ function del_young(){
 				$result= mysqli_query($connection, $query) or die("Invalid query");
 			}
 		}
-		
 		include_once('youngs.html');
 	}
 }
