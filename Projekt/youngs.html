@@ -1,12 +1,14 @@
 <table border="1" width="100%">
-  <tr>
-    <th>Eesnimi</th>
-    <th>Perekonnanimi</th>
-    <th>Sünniaeg</th>
-    <th>Elukoht</th>
-    <th>Telefon</th>
+<tr>
+	<th></th>
+	<th>Eesnimi</th>
+	<th>Perekonnanimi</th>
+	<th>Sugu</th>
+	<th>Sünniaeg</th>
+	<th>Elukoht</th>
+	<th>Telefon</th>
 	<th>Viimati muudetud</th>
-  </tr>
+</tr>
 
 <?php
 
@@ -20,19 +22,26 @@ if (!$result)
 
 
 if ($result->num_rows > 0) {
+echo "<form action='?page=del_young' method='POST'>";
     // output data of each row
     while($row = $result->fetch_assoc()) {
-		echo "<tr>\n";        
-		echo "<td>" . $row['eesnimi'] . "</td>\n";
-		echo "<td>" . $row['perekonnanimi'] . "</td>\n";
-		echo "<td>" . $row['synniaeg'] . "</td>\n";
-		echo "<td>" . $row['elukoht'] . "</td>\n";
-		echo "<td>" . $row['telefon'] . "</td>\n";
-		echo "<td>" . $row['muudetud'] . "</td>\n";
+		echo "<tr>\n";
+		echo "<td><input name='checkbox[".$row['id']."]' type='checkbox' />\n";
+		echo "<td>".$row['eesnimi']."</td>\n";
+		echo "<td>".$row['perekonnanimi']."</td>\n";
+		echo "<td>".$row['sugu']."</td>\n";
+		echo "<td>".$row['synniaeg']."</td>\n";
+		echo "<td>".$row['elukoht']."</td>\n";
+		echo "<td>".$row['telefon']."</td>\n";
+		echo "<td>".$row['muudetud']."</td>\n";
 		}
 	} else {
 		echo "0 results";
 	}
-
+	
 mysqli_close($connection);
 ?>
+</table>
+
+<input type="submit" value="Kustuta valitud" />
+</form>

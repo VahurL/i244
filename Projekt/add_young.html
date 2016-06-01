@@ -1,8 +1,29 @@
 <form action="?page=add_young" method="POST">
-	Eesnimi: <input id="user" type="text" name="firstname" placeholder="Eesnimi"><br />
-	Perekonnanimi: <input id="user" type="text" name="lastname" placeholder="Perekonnanimi"><br />
-	Sünniaeg: <input id="user" type="text" name="birthdate" placeholder="Sünniaeg"><br />
-	Elukoht: <input id="user" type="text" name="address" placeholder="Elukoht"><br />
-	Telefon: <input id="pass" type="text" name="phone" placeholder="Telefon"><br />
+	<table>
+		<tr>
+			<td>Eesnimi:</td>
+			<td><input type="text" name="firstname" placeholder="Eesnimi" required></td>
+		</tr>
+		<tr>
+			<td>Perekonnanimi:</td>
+			<td><input type="text" name="lastname" placeholder="Perekonnanimi"></td>
+		</tr>
+		<tr>
+			<td>Sugu:</td>
+			<td><input type="radio" name="gender" value="Tüdruk">Tüdruk <input type="radio" name="gender" value="Poiss">Poiss</td>
+		</tr>
+		<tr>
+			<td>Sünniaeg:</td>
+			<td><input type="text" name="birthdate" placeholder="Sünniaeg"></td>
+		</tr>
+		<tr>
+			<td>Elukoht:</td>
+			<td><input type="text" name="address" placeholder="Elukoht"></td>
+		</tr>
+		<tr>
+			<td>Telefon:</td>
+			<td><input type="text" name="phone" placeholder="Telefon"></td>
+		</tr>
+	</table>
 	<button name="add" class="loginbutton" style="vertical-align:middle"><span>Sisesta</span></button>
 </form>

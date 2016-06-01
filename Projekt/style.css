@@ -21,6 +21,11 @@ body {
 	padding: 0px;
 }
 
+table {
+	margin-left:auto;
+	margin-right:auto;
+}
+
 ul {
     list-style-type: none;
     margin: 0;

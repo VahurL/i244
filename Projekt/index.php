@@ -24,6 +24,12 @@ switch($page){
 	case "add_young":
 		add_young();
 	break;
+	case "change_young":
+		change_young();
+	break;
+	case "del_young":
+		del_young();
+	break;
 	case "logout":
 		logout();
 	break;

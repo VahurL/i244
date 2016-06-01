@@ -62,22 +62,63 @@ function add_young(){
 	} else {
 		if(isset($_POST['add'])) {
 			global $connection;
-			$first_name = mysqli_real_escape_string($connection, $_POST['firstname']);
+			$first_name = mysqli_real_escape_string($connection, $_POST["firstname"]);
 			$last_name = mysqli_real_escape_string($connection, $_POST['lastname']);
+			$gender = mysqli_real_escape_string($connection, $_POST['gender']);
 			$birth_date = mysqli_real_escape_string($connection, $_POST['birthdate']);
 			$location = mysqli_real_escape_string($connection, $_POST['address']);
 			$phone_number = mysqli_real_escape_string($connection, $_POST['phone']);
 			
-			$sql = "INSERT INTO 10152993_young (eesnimi, perekonnanimi, synniaeg, elukoht, telefon, muudetud) VALUES ('$first_name', '$last_name', '$birth_date', '$location', '$phone_number', NOW())";
+			$first_name = input_control($first_name);
+			$last_name = input_control($last_name);
+			$gender = input_control($gender);
+			$birth_date = input_control($birth_date);
+			$location = input_control($location);
+			$phone_number = input_control($phone_number);
+			
+			$sql = "INSERT INTO 10152993_young (eesnimi, perekonnanimi, sugu, synniaeg, elukoht, telefon, muudetud) VALUES ('$first_name', '$last_name', '$gender', '$birth_date', '$location', '$phone_number', NOW())";
 			if(mysqli_query($connection, $sql)){
 				echo "Noor lisatud!";
 			} else {
-				echo "VIGA! Ei saanud kasutajat lisada: $sql. " . mysqli_error($connection);
+				echo "VIGA! Ei saanud kasutajat lisada!";
 				}
 			include_once('add_young.html');
-			} else {
-				include_once('add_young.html');
+		} else {
+			include_once('add_young.html');
+		}
+	}
+}
+
+function input_control($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+function change_young(){
+	if (!isset($_SESSION['username'])) {
+		header("Location: index.php?page=login");
+	} else {
+		include_once('change_young.html');
+	}
+}
+
+function del_young(){
+	if (!isset($_SESSION['username'])) {
+		header("Location: index.php?page=login");
+	} else {
+		global $connection;
+		
+		$delete = $_POST['checkbox'];
+		foreach ($delete as $id => $val) {
+			if($val=='on'){
+				$query="DELETE FROM 10152993_young WHERE id = '".$id."'";
+				$result= mysqli_query($connection, $query) or die("Invalid query");
 			}
+		}
+		
+		include_once('youngs.html');
 	}
 }
 
